@@ -5,30 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/4e085e016d.js" crossorigin="anonymous"></script>
+    <title>Brian Lobo</title>
 </head>
 <body>
-    <nav>
-        <a href="#">Work</a>
-        <a href="#">Resume</a>
-        <a href="#">Contact</a>
-    </nav>
     <div class="container">
+        <nav>
+            <a href="#">Work</a>
+            <a onClick="openTab(this)" href="#" name="PDF/brian_lobo_resume.pdf">Resume</a>
+            <a href="#">Contact</a>
+        </nav>
         <h1>
-            Hi, I'm Brian Lobo-Amaro and I'm a <span id="coral">Full Stack Developer</span> living in Miami.
+            Hi, I'm Brian Lobo-Amaro and I'm a <span id="coral">Full Stack Developer</span> working in Miami.
         </h1>
-        <div class="experience">
-            <div class="current">
-                <p>Currently:</p>
-                <img id="nasa" src="images/nasa_logo.png" alt="NASA logo">
-            </div>
-            <div class="previous">
-                <p>Previously:</p>
-                <img id="queentessence" src="images/queentessence.png" alt="">
-            </div>
+        <div id="icon-div">
+            <a target="_blank" rel="noopener noreferrer" class="fab fa-github-square fa-3x" href="https://github.com/brianlobo"></a>
+            <a target="_blank" rel="noopener noreferrer" class="fab fa-linkedin fa-3x" href="https://www.linkedin.com/in/brian-lobo-amaro-b5a94915b/"></a>
         </div>
     </div>
     <canvas id="bgCanvas"></canvas>
 </body>
 <script src="index.js"></script>
+<script src="animate_bg.js"></script>
+<script type="text/javascript">
+    function openTab(th) {
+        window.open(th.name, '_blank');
+    }
+</script>
 </html>
