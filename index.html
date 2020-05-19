@@ -20,23 +20,68 @@
         </div>
 
         <div class="nav-links">
-            <a href="#">Work</a>
+            <a href="#" onclick="smoothScroll(document.querySelector('#previous-work'))">Work</a>
             <a onClick="openTab(this)" href="#" name="PDF/brian_lobo_resume.pdf">Resume</a>
-            <a href="#">Contact</a>
+            <a href="#" onclick="smoothScroll(document.querySelector('.contact-section'))">Contact</a>
         </div>
     </div>
     <div class="container">
-        <!-- <nav>
-            <a href="#">Work</a>
-            <a onClick="openTab(this)" href="#" name="PDF/brian_lobo_resume.pdf">Resume</a>
-            <a href="#">Contact</a>
-        </nav> -->
-        <h1>
-            Hi, I'm Brian Lobo-Amaro and I'm a <span id="coral">Full Stack Developer</span> working in Miami.
-        </h1>
-        <div id="icon-div">
-            <a target="_blank" rel="noopener noreferrer" class="fab fa-github-square fa-3x" href="https://github.com/brianlobo"></a>
-            <a target="_blank" rel="noopener noreferrer" class="fab fa-linkedin fa-3x" href="https://www.linkedin.com/in/brian-lobo-amaro-b5a94915b/"></a>
+        <div class="main">
+            <h1>
+                Hi, I'm Brian Lobo-Amaro and I'm a <span id="coral">Full Stack Developer</span> working in Miami.
+            </h1>
+            <div id="icon-div">
+                <a target="_blank" rel="noopener noreferrer" class="fab fa-github-square fa-3x" href="https://github.com/brianlobo"></a>
+                <a target="_blank" rel="noopener noreferrer" class="fab fa-linkedin fa-3x" href="https://www.linkedin.com/in/brian-lobo-amaro-b5a94915b/"></a>
+            </div>
+        </div>
+        <h2 id="previous-work">Previous Work</h2>
+        <div class="my-work">
+            <div class="work-div two-third" style="background-image: url('images/work/nasa_visualization.png'); background-size: cover;">
+                <div class="blur"></div>
+                <div class="work-content" onclick="openTab('https://nasa.github.io/data-nasa-gov-frontpage/data_visualizations.html')">
+                    <h3>Visualization of datasets in data.nasa.gov  <i class="work-link-icon fa fa-external-link" aria-hidden="true"></i></h3>
+                </div>
+            </div>
+
+            <div class="work-div one-third" style="background-image: url('images/work/ml_blog.png'); background-size: cover;">
+                <div class="work-content" onclick="openTab('https://open.nasa.gov/blog/struggles-finding-nasa-datasets-suitable-i-training/')">
+                    <h3>Finding NASA Datasets Suitable for A.I. Training  <i class="work-link-icon fa fa-external-link" aria-hidden="true"></i></h3>
+                </div>
+            </div>
+
+            <div class="work-div one-third" style="background-image: url('images/work/vis_blog.png'); background-size: cover;">
+                <div class="work-content" onclick="openTab('https://open.nasa.gov/blog/potential-reusability-aggregate-data-visualization-datanasagovs-public-data-catalog-other-federal-agencies/')">
+                    <h3>Potential Reusability of A Data Visualization of Data.nasa.gov’s Public Data Catalog for Other Federal Agencies  <i class="work-link-icon fa fa-external-link" aria-hidden="true"></i></h3>
+                </div>
+            </div>
+
+            <div class="work-div two-third" style="background-image: url('images/work/sorting_vis.png'); background-size: cover;">
+                <div class="work-content" onclick="openTab('https://brianlobo.github.io/sorting_visualizer/')">
+                    <h3>Sorting Algorithm Visualization  <i class="work-link-icon fa fa-external-link" aria-hidden="true"></i></h3>
+                </div>
+            </div>
+        </div>
+        
+        <h2 id="want-to-chat">Want to chat?</h2>
+        <div class="contact-section">
+            <div>
+                <p>Feel free to get in touch with me. I'm always open to discussing new projects, creative ideas, or opportunities!</p>
+            </div>
+            <div class="contact-form">
+                <form action="https://formspree.io/xpzyqyqb" method="POST">
+                    <!-- <label> Name:</label> -->
+                    <input placeholder="Name" type="text" name="name">
+                    
+                    <!-- <label> Email:</label> -->
+                    <input placeholder="Email" type="text" name="_replyto">
+
+                    <!-- <label> Message:</label> -->
+                    <textarea placeholder="Your Message" name="message"></textarea>
+                
+                    <button type="submit">Send</button>
+                </form>
+            </div>
         </div>
     </div>
     <canvas id="bgCanvas"></canvas>
@@ -45,7 +90,36 @@
 <script src="animate_bg.js"></script>
 <script type="text/javascript">
     function openTab(th) {
-        window.open(th.name, '_blank');
+        console.log(typeof(th))
+        if (typeof(th) === "string") {
+            console.log("here")
+            window.open(th, '_blank');
+        } else {
+            window.open(th.name, '_blank');
+        }
+    }
+
+    window.smoothScroll = function (target) {
+        var scrollContainer = target;
+        do { //find scroll container
+            scrollContainer = scrollContainer.parentNode;
+            if (!scrollContainer) return;
+            scrollContainer.scrollTop += 1;
+        } while (scrollContainer.scrollTop == 0);
+
+        var targetY = 0;
+        do { //find the top of target relatively to the container
+            if (target == scrollContainer) break;
+            targetY += target.offsetTop;
+        } while (target = target.offsetParent);
+
+        scroll = function (c, a, b, i) {
+            i++; if (i > 20) return;
+            c.scrollTop = a + (b - a) / 20 * i;
+            setTimeout(function () { scroll(c, a, b, i); }, 20);
+        }
+        // start scrolling
+        scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
     }
 </script>
 </html>

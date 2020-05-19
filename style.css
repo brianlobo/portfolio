@@ -23,41 +23,18 @@ canvas {
 }
 
 h1 {
-    font-size: 2.1em;
-    margin-top: 12%;
+    font-size: 3em;
+    margin-top: 23%;
+}
+
+h2 {
+    font-size: 2em;
 }
 
 div, nav {
     position: relative;
     z-index: 1;
 }
-
-/* nav {
-    display: flex;
-    flex-direction: row-reverse;
-
-    height: 50px;
-    width: 100%;
-    position: relative;
-}
-
-nav > a {
-    font-size: 1.5em;
-    text-decoration: none;
-    margin: 50px 65px;
-}
-
-nav > a:link {
-    color: white;
-}
-
-nav > a:visited {
-    color: white;
-}
-
-nav > a:hover {
-    color: #f97171;
-} */
 
 .nav {
     height: 50px;
@@ -114,7 +91,78 @@ nav > a:hover {
 
 .container {
     position: relative;
-    margin: 0% 10%;
+    margin: 0% 10% 7% 10%;
+}
+
+.main {
+    height: 70vh;
+}
+
+.my-work {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.work-div {
+    height: 350px;
+    margin: 1em;
+}
+
+.work-content {
+    padding-left: 10px;
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #000000ba;
+}
+
+.work-content>h3 {
+    font-size: 1.5em;
+}
+
+.work-content:hover {
+    background-color: #271e88de;
+    cursor: pointer;
+}
+
+.two-third {
+    width: 100%;
+}
+
+.one-third {
+    width: 100%;
+}
+
+#want-to-chat {
+    margin-top: 3em;
+}
+
+form>button {
+    display: block;
+    width: 20%;
+    margin: 20px auto;
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    border-radius:0.12em;
+}
+
+form>button:hover {
+    color: #fffefe;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+
+
+form>input,
+form>textarea {
+    margin: 20px auto;
+    display: block;
+    width: 70%;
+    border: 0;
+    outline: 0;
+    padding: 1em;
 }
 
 #icon-div {
@@ -139,11 +187,51 @@ nav > a:hover {
 @media only screen and (min-width: 768px) {
     h1 {
         font-size: 4em;
+        margin-top: 15%;
+    }
+}
+
+@media only screen and (min-width: 1080px) {
+    .two-third {
+        width: 62%;
     }
 
+    .one-third {
+        width: 31%;
+    }
+
+    .work-div {
+        margin: .8em;
+    }
+
+    .contact-section {
+        display: flex;
+    }
+    
+    .contact-section > div {
+        width: 50%;
+    }
+
+    .contact-form > form {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .contact-form>form>textarea{
+        height: 100px;
+    }
+
+    form>input,
+    form>textarea {
+        width: 85%;
+    }
 }
 
 @media (max-width:1080px) {
+    .main {
+        height: 80vh;
+    }
+
     .nav {
         z-index: 2;
     }
